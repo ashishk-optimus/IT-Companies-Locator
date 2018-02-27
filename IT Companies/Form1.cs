@@ -12,6 +12,7 @@ using System.Xml;
 
 namespace IT_Companies
 {
+
     public partial class Form1 : Form
     {
         // hold response from google places api in Xml format
@@ -31,12 +32,13 @@ namespace IT_Companies
 
             // Get City details from the textbox named t1
             string cityName = t1.Text;
+            string countryName = tc.Text;
             int result; // variable to hold int value returned by TryParse
 
             // Display Error in case of not provided city name or numbers provided
             if (cityName.Length == 0 || int.TryParse(cityName, out result))
             {
-                textBoxResult.Text = "Type a Valid City Name..!!";
+                textBoxResult.Text = Errors.invalidCityInputError;
             }
 
             // Fetch the Companies Details and display it
@@ -50,6 +52,8 @@ namespace IT_Companies
                 {
                     formattedCityName += word + "+";
                 }
+
+                formattedCityName += countryName;
 
                 // calling method with city name as passed parameter 
                 GetCompaniesInXml(formattedCityName);
@@ -77,7 +81,7 @@ namespace IT_Companies
                 // Dispaly Error in case of no returned Company Name
                 if (countName == 0)
                 {
-                    textBoxResult.Text = "Invalid City or No IT Companies exist for such city.";
+                    textBoxResult.Text = Errors.invalidCityNameError;
                 }
 
                 // Append Each Object to textBoxResult 
@@ -102,7 +106,7 @@ namespace IT_Companies
         public XmlDocument GetCompaniesInXml(string formattedCityName)
         {
             // URL mor making request to Google Places API along with the Key
-            string baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=it+companies+in+" + formattedCityName + "india&key=AIzaSyBhN8m0tLYRr3QIiJ8a-dBefGTZNhrncnQ";
+            string baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=it+companies+in+" + formattedCityName + "&key=AIzaSyBhN8m0tLYRr3QIiJ8a-dBefGTZNhrncnQ";
 
             // Making HTTP Request using baseURL 
             HttpWebRequest req = WebRequest.Create(baseURL) as HttpWebRequest;
@@ -123,5 +127,11 @@ namespace IT_Companies
             this.Close();
         }
         
+    }
+
+    static class Errors
+    {
+        public const string invalidCityInputError = "Type a Valid City Name..!!";
+        public const string invalidCityNameError = "Invalid City or no IT Companies exist for such city.";
     }
 }

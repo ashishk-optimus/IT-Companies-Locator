@@ -36,13 +36,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.labelCount = new System.Windows.Forms.Label();
+            this.tc = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // t1
             // 
             this.t1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.t1.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.t1.Location = new System.Drawing.Point(205, 128);
+            this.t1.Location = new System.Drawing.Point(312, 125);
             this.t1.Name = "t1";
             this.t1.Size = new System.Drawing.Size(249, 41);
             this.t1.TabIndex = 0;
@@ -52,7 +53,7 @@
             // 
             this.buttonSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.buttonSearch.Font = new System.Drawing.Font("Old English Text MT", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearch.Location = new System.Drawing.Point(504, 128);
+            this.buttonSearch.Location = new System.Drawing.Point(597, 125);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(123, 41);
             this.buttonSearch.TabIndex = 1;
@@ -121,6 +122,17 @@
             this.labelCount.Size = new System.Drawing.Size(0, 35);
             this.labelCount.TabIndex = 6;
             // 
+            // tc
+            // 
+            this.tc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.tc.Font = new System.Drawing.Font("Papyrus", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tc.Location = new System.Drawing.Point(146, 125);
+            this.tc.Name = "tc";
+            this.tc.Size = new System.Drawing.Size(126, 41);
+            this.tc.TabIndex = 7;
+            this.tc.Text = "India";
+            this.tc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +140,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(846, 581);
+            this.Controls.Add(this.tc);
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -154,6 +167,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label labelCount;
+        private System.Windows.Forms.TextBox tc;
     }
 }
 
