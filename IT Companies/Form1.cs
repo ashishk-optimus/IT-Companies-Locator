@@ -14,6 +14,9 @@ namespace IT_Companies
 {
     public partial class Form1 : Form
     {
+        // hold response from google places api in Xml format
+        XmlDocument xmlDoc;
+
         public Form1()
         {
             InitializeComponent();
@@ -48,18 +51,8 @@ namespace IT_Companies
                     formattedCityName += word + "+";
                 }
 
-                // URL mor making request to Google Places API along with the Key
-                string baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=it+companies+in+" + formattedCityName + "india&key=AIzaSyBhN8m0tLYRr3QIiJ8a-dBefGTZNhrncnQ";
-
-                // Making HTTP Request using baseURL 
-                HttpWebRequest req = WebRequest.Create(baseURL) as HttpWebRequest;
-
-                // Object of XmlDocument to hold the Http Response in XML format
-                XmlDocument xmlDoc = new XmlDocument();
-                using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
-                {
-                    xmlDoc.Load(resp.GetResponseStream()); // Loading response to XmlDocument object
-                }
+                // calling method with city name as passed parameter 
+                GetCompaniesInXml(formattedCityName);
 
                 // Getting all the IT Companies name with tag 'name' in XML file to XmlNodeList object
                 XmlNodeList nodeListName = xmlDoc.GetElementsByTagName("name");
@@ -103,6 +96,25 @@ namespace IT_Companies
             }
             
             
+        }
+
+        // Return the response for given city in XmlDocument object
+        public XmlDocument GetCompaniesInXml(string formattedCityName)
+        {
+            // URL mor making request to Google Places API along with the Key
+            string baseURL = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=it+companies+in+" + formattedCityName + "india&key=AIzaSyBhN8m0tLYRr3QIiJ8a-dBefGTZNhrncnQ";
+
+            // Making HTTP Request using baseURL 
+            HttpWebRequest req = WebRequest.Create(baseURL) as HttpWebRequest;
+
+            // Object of XmlDocument to hold the Http Response in XML format
+            xmlDoc = new XmlDocument();
+            using (HttpWebResponse resp = req.GetResponse() as HttpWebResponse)
+            {
+                xmlDoc.Load(resp.GetResponseStream()); // Loading response to XmlDocument object
+            }
+
+            return xmlDoc;
         }
 
         // Code Executed When Button Exit is Clicked
