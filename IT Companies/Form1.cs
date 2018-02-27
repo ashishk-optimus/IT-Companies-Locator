@@ -87,7 +87,7 @@ namespace IT_Companies
                     {
 
                         // Appending textBoxResult with CompanyDetails Object by calling toString() method for each object
-                        textBoxResult.Text += company[i] + "\r\n--------------------------------------------------\r\n";
+                        textBoxResult.Text += company[i] + "\r\n-------------------------------------------------------------\r\n";
                     }
 
                     // Display the number of IT Companies on label named labelCount
