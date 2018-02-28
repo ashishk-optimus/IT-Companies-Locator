@@ -22,21 +22,26 @@ namespace IT_Companies
         {
             InitializeComponent();
         }
-        
-        // Code Executed When Button Search is Clicked
+
+        /// <summary>
+        /// Code Executed When Button Search is Clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            int countName = 0; // variable to count number of IT Companies returned by API 
+        
+            int _countName = 0; // variable to count number of IT Companies returned by API 
             textBoxResult.Text = ""; // Set Initially textBoxResult as Empty
             labelCount.Text = ""; // Set Initially labelCount as Empty
 
             // Get City details from the textbox named t1
-            string cityName = t1.Text;
-            string countryName = tc.Text;
-            int result; // variable to hold int value returned by TryParse
+            string _cityName = t1.Text;
+            string _countryName = tc.Text;
+            int _result; // variable to hold int value returned by TryParse
 
             // Display Error in case of not provided city name or numbers provided
-            if (cityName.Length == 0 || int.TryParse(cityName, out result))
+            if (_cityName.Length == 0 || int.TryParse(_cityName, out _result))
             {
                 textBoxResult.Text = Errors.invalidCityInputError;
             }
@@ -45,7 +50,7 @@ namespace IT_Companies
             else
             {
                 string formattedCityName = string.Empty; // string to format the provided city name in reuired url
-                string[] cityInfo = cityName.Split(' '); 
+                string[] cityInfo = _cityName.Split(' '); 
 
                 // format the provided city name to their respective url
                 foreach (string word in cityInfo)
@@ -53,7 +58,7 @@ namespace IT_Companies
                     formattedCityName += word + "+";
                 }
 
-                formattedCityName += countryName;
+                formattedCityName += _countryName;
 
                 // calling method with city name as passed parameter 
                 GetCompaniesInXml(formattedCityName);
@@ -65,21 +70,21 @@ namespace IT_Companies
                 XmlNodeList nodeListAddress = xmlDoc.GetElementsByTagName("formatted_address");
 
                 // Count IT Companies for provided Location
-                countName = nodeListName.Count;
+                _countName = nodeListName.Count;
 
                 // Create object for all the available IT Company
-                CompanyDetails[] company = new CompanyDetails[countName];
+                CompanyDetails[] _company = new CompanyDetails[_countName];
 
                 // Set name and address for each company in CompanyDetails object
-                for(int i = 0; i<countName; i++)
+                for(int i = 0; i<_countName; i++)
                 {
-                    company[i] = new CompanyDetails();
-                    company[i].setName(nodeListName[i].InnerText);
-                    company[i].setAddress(nodeListAddress[i].InnerText);
+                    _company[i] = new CompanyDetails();
+                    _company[i].setName(nodeListName[i].InnerText);
+                    _company[i].setAddress(nodeListAddress[i].InnerText);
                 }
 
                 // Dispaly Error in case of no returned Company Name
-                if (countName == 0)
+                if (_countName == 0)
                 {
                     textBoxResult.Text = Errors.invalidCityNameError;
                 }
@@ -87,22 +92,26 @@ namespace IT_Companies
                 // Append Each Object to textBoxResult 
                 else
                 {
-                    for(int i = 0; i< countName; i++)
+                    for(int i = 0; i< _countName; i++)
                     {
 
                         // Appending textBoxResult with CompanyDetails Object by calling toString() method for each object
-                        textBoxResult.Text += company[i] + "\r\n-------------------------------------------------------------\r\n";
+                        textBoxResult.Text += _company[i] + "\r\n-------------------------------------------------------------\r\n";
                     }
 
                     // Display the number of IT Companies on label named labelCount
-                    labelCount.Text = countName.ToString();
+                    labelCount.Text = _countName.ToString();
                 }
             }
             
             
         }
 
-        // Return the response for given city in XmlDocument object
+        /// <summary>
+        /// Return the response for given city in XmlDocument object
+        /// </summary>
+        /// <param name="formattedCityName"></param>
+        /// <returns>XmlDocument</returns>
         public XmlDocument GetCompaniesInXml(string formattedCityName)
         {
             // URL mor making request to Google Places API along with the Key
@@ -121,7 +130,11 @@ namespace IT_Companies
             return xmlDoc;
         }
 
-        // Code Executed When Button Exit is Clicked
+        /// <summary>
+        /// Code Executed When Button Exit is Clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
