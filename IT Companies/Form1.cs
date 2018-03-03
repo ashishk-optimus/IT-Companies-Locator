@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -28,16 +29,28 @@ namespace IT_Companies
             labelCount.Text = ""; // Set Initially labelCount as Empty
 
             // Get City details from the textbox named t1
-            string cityName = t1.Text;
-            string countryName = tc.Text;
+            string cityName = textboxCity.Text;
+            Regex specialCharacterRegex = new Regex(@"[~`!@#$%^&*()+=|\\{}':;.,<>/?[\]""_-]");
             int _result; // variable to hold int value returned by TryParse
-
+            
             // Display Error in case of not provided city name or numbers provided
             if (cityName.Length == 0 || int.TryParse(cityName, out _result))
             {
-                textBoxResult.Text = Errors.InvalidCityInputError;
+                labelError.Visible = true;
+                labelError.Text = Errors.InvalidCityInputError;
+                pictureBoxLocation.Visible = true;
+                labelResult.Visible = false;
+                textBoxResult.Visible = false;
             }
 
+            else if (specialCharacterRegex.IsMatch(cityName))
+            {
+                labelError.Visible = true;
+                labelError.Text = Errors.SpecialCharacterError;
+                pictureBoxLocation.Visible = true;
+                labelResult.Visible = false;
+                textBoxResult.Visible = false;
+            }
             // Fetch the Companies Details and display it
             else
             {
@@ -50,8 +63,6 @@ namespace IT_Companies
                 {
                     formattedCityName += word + "+";
                 }
-
-                formattedCityName += countryName;
 
                 // calling method with city name as passed parameter 
                 GetCompaniesInXml(formattedCityName);
@@ -79,7 +90,11 @@ namespace IT_Companies
                 // Dispaly Error in case of no returned Company Name
                 if (_countCompanyName == 0)
                 {
-                    textBoxResult.Text = Errors.InvalidCityNameError;
+                    labelError.Visible = true;
+                    labelError.Text = Errors.InvalidCityNameError;
+                    pictureBoxLocation.Visible = true;
+                    labelResult.Visible = false;
+                    textBoxResult.Visible = false;
                 }
 
                 // Append Each Object to textBoxResult 
@@ -87,12 +102,16 @@ namespace IT_Companies
                 {
                     for (int i = 0; i < _countCompanyName; i++)
                     {
-
+                        labelError.Visible = false;
+                        pictureBoxLocation.Visible = false;
+                        labelResult.Visible = true;
+                        textBoxResult.Visible = true;
                         // Appending textBoxResult with CompanyDetails Object by calling toString() method for each object
                         textBoxResult.Text += company[i] + "\r\n-------------------------------------------------------------\r\n";
                     }
 
                     // Display the number of IT Companies on label named labelCount
+                    labelCount.Visible = false;
                     labelCount.Text = _countCompanyName.ToString();
                 }
             }
@@ -126,23 +145,13 @@ namespace IT_Companies
 
             return _xmlDoc;
         }
-
-        /// <summary>
-        /// Code Executed When Button Exit is Clicked
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            Close();
-        }
-
     }
     #region Error Message
     static class Errors
     {
+        public const string SpecialCharacterError = "Special characters are not allowed !!!";
         public const string InvalidCityInputError = "Type a Valid City Name..!!";
-        public const string InvalidCityNameError = "Invalid City or no IT Companies exist for such city.";
+        public const string InvalidCityNameError = "Invalid City name or No IT Companies exist for such city.";
     }
     #endregion
 }
