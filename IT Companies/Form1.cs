@@ -22,7 +22,7 @@ namespace IT_Companies
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void button1_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
 
             textBoxResult.Text = ""; // Set Initially textBoxResult as Empty
