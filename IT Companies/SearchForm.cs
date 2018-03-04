@@ -7,12 +7,12 @@ using System.Xml;
 namespace IT_Companies
 {
 
-    public partial class Form1 : Form
+    public partial class SearchForm : Form
     {
         // hold response from google places api in Xml format
         private XmlDocument _xmlDoc;
 
-        public Form1()
+        public SearchForm()
         {
             InitializeComponent();
         }
@@ -30,6 +30,8 @@ namespace IT_Companies
 
             // Get City details from the textbox named t1
             string cityName = textboxCity.Text;
+
+            // Regular Expression for special character
             Regex specialCharacterRegex = new Regex(@"[~`!@#$%^&*()+=|\\{}':;.,<>/?[\]""_-]");
             int _result; // variable to hold int value returned by TryParse
             
@@ -43,6 +45,8 @@ namespace IT_Companies
                 textBoxResult.Visible = false;
             }
 
+            // To check occurence of any special character by matching it with Regular
+            // Expression defined by specialCharacterRegex
             else if (specialCharacterRegex.IsMatch(cityName))
             {
                 labelError.Visible = true;
