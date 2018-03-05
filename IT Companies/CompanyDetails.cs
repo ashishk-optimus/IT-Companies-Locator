@@ -8,32 +8,32 @@ namespace IT_Companies
 {
     class CompanyDetails
     {
-        private string name;
-        private string address;
+        private string _name;
+        private string _address;
 
-        public string getName()
+        public string get_Name()
         {
-            return this.name;
+            return this._name;
         }
 
-        public void setName(string name)
+        public void set_Name(string name)
         {
-            this.name = name;
+            this._name = name;
         }
         
-        public string Address()
+        public string get_Address()
         {
-            return this.address;
+            return this._address;
         }
 
-        public void setAddress(string address)
+        public void set_Address(string address)
         {
-            this.address = address;
+            this._address = address;
         }
 
         public override string ToString()
         {
-            return name + "\r\n\n" + address;
+            return _name + "\r\n\n" + _address;
         }
     }
 }

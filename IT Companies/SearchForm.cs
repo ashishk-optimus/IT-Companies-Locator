@@ -22,7 +22,7 @@ namespace IT_Companies
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
 
             textBoxResult.Text = ""; // Set Initially textBoxResult as Empty
@@ -87,8 +87,8 @@ namespace IT_Companies
                 for (int i = 0; i < _countCompanyName; i++)
                 {
                     company[i] = new CompanyDetails();
-                    company[i].setName(nodeListName[i].InnerText);
-                    company[i].setAddress(nodeListAddress[i].InnerText);
+                    company[i].set_Name(nodeListName[i].InnerText);
+                    company[i].set_Address(nodeListAddress[i].InnerText);
                 }
 
                 // Dispaly Error in case of no returned Company Name

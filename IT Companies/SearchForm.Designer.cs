@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             this.textboxCity = new System.Windows.Forms.TextBox();
-            this.buttonSearch = new System.Windows.Forms.Button();
+            this.ButtonSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxResult = new System.Windows.Forms.TextBox();
             this.labelResult = new System.Windows.Forms.Label();
@@ -54,24 +54,24 @@
             this.textboxCity.Text = "Type city name here";
             this.textboxCity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonSearch
+            // ButtonSearch
             // 
-            this.buttonSearch.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.buttonSearch.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
-            this.buttonSearch.FlatAppearance.BorderSize = 0;
-            this.buttonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSearch.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSearch.ForeColor = System.Drawing.Color.SkyBlue;
-            this.buttonSearch.Image = ((System.Drawing.Image)(resources.GetObject("buttonSearch.Image")));
-            this.buttonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSearch.Location = new System.Drawing.Point(375, 80);
-            this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(108, 33);
-            this.buttonSearch.TabIndex = 1;
-            this.buttonSearch.Text = "Search";
-            this.buttonSearch.UseVisualStyleBackColor = false;
-            this.buttonSearch.Click += new System.EventHandler(this.searchButton_Click);
+            this.ButtonSearch.BackColor = System.Drawing.Color.LightBlue;
+            this.ButtonSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ButtonSearch.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.ButtonSearch.FlatAppearance.BorderSize = 0;
+            this.ButtonSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonSearch.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonSearch.ForeColor = System.Drawing.Color.SkyBlue;
+            this.ButtonSearch.Image = ((System.Drawing.Image)(resources.GetObject("ButtonSearch.Image")));
+            this.ButtonSearch.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ButtonSearch.Location = new System.Drawing.Point(375, 80);
+            this.ButtonSearch.Name = "ButtonSearch";
+            this.ButtonSearch.Size = new System.Drawing.Size(108, 33);
+            this.ButtonSearch.TabIndex = 1;
+            this.ButtonSearch.Text = "Search";
+            this.ButtonSearch.UseVisualStyleBackColor = false;
+            this.ButtonSearch.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // label1
             // 
@@ -162,7 +162,7 @@
             this.Controls.Add(this.labelCount);
             this.Controls.Add(this.labelResult);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonSearch);
+            this.Controls.Add(this.ButtonSearch);
             this.Controls.Add(this.textboxCity);
             this.Controls.Add(this.pictureBoxLocation);
             this.ForeColor = System.Drawing.Color.DarkBlue;
@@ -180,7 +180,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textboxCity;
-        private System.Windows.Forms.Button buttonSearch;
+        private System.Windows.Forms.Button ButtonSearch;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxResult;
         private System.Windows.Forms.Label labelResult;
