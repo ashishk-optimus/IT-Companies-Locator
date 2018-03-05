@@ -128,7 +128,7 @@ namespace IT_Companies
         /// </summary>
         /// <param name="formattedCityName"></param>
         /// <returns>XmlDocument</returns>
-        public XmlDocument GetCompaniesInXml(string formattedCityName)
+        private XmlDocument GetCompaniesInXml(string formattedCityName)
         {
             // URL mor making request to Google Places API along with the Key
             string baseUrl = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=it+companies+in+" + formattedCityName + "&key=AIzaSyBhN8m0tLYRr3QIiJ8a-dBefGTZNhrncnQ";
