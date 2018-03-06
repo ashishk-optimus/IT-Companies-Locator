@@ -37,6 +37,8 @@
             this.labelCount = new System.Windows.Forms.Label();
             this.labelError = new System.Windows.Forms.Label();
             this.pictureBoxLocation = new System.Windows.Forms.PictureBox();
+            this.buttonPrev = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLocation)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             this.textBoxResult.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxResult.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxResult.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.textBoxResult.Location = new System.Drawing.Point(114, 199);
+            this.textBoxResult.Location = new System.Drawing.Point(113, 171);
             this.textBoxResult.Multiline = true;
             this.textBoxResult.Name = "textBoxResult";
             this.textBoxResult.ReadOnly = true;
@@ -106,7 +108,7 @@
             this.labelResult.BackColor = System.Drawing.Color.Transparent;
             this.labelResult.Font = new System.Drawing.Font("Sitka Banner", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelResult.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelResult.Location = new System.Drawing.Point(377, 148);
+            this.labelResult.Location = new System.Drawing.Point(368, 129);
             this.labelResult.Name = "labelResult";
             this.labelResult.Size = new System.Drawing.Size(97, 39);
             this.labelResult.TabIndex = 4;
@@ -149,6 +151,45 @@
             this.pictureBoxLocation.TabIndex = 8;
             this.pictureBoxLocation.TabStop = false;
             // 
+            // buttonPrev
+            // 
+            this.buttonPrev.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonPrev.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonPrev.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.buttonPrev.FlatAppearance.BorderSize = 0;
+            this.buttonPrev.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPrev.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPrev.ForeColor = System.Drawing.Color.SkyBlue;
+            this.buttonPrev.Image = ((System.Drawing.Image)(resources.GetObject("buttonPrev.Image")));
+            this.buttonPrev.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonPrev.Location = new System.Drawing.Point(113, 419);
+            this.buttonPrev.Name = "buttonPrev";
+            this.buttonPrev.Size = new System.Drawing.Size(108, 33);
+            this.buttonPrev.TabIndex = 9;
+            this.buttonPrev.Text = "Prev";
+            this.buttonPrev.UseVisualStyleBackColor = false;
+            this.buttonPrev.Visible = false;
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonNext.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonNext.FlatAppearance.BorderColor = System.Drawing.Color.Blue;
+            this.buttonNext.FlatAppearance.BorderSize = 0;
+            this.buttonNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNext.Font = new System.Drawing.Font("Palatino Linotype", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext.ForeColor = System.Drawing.Color.SkyBlue;
+            this.buttonNext.Image = ((System.Drawing.Image)(resources.GetObject("buttonNext.Image")));
+            this.buttonNext.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.buttonNext.Location = new System.Drawing.Point(630, 419);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(108, 33);
+            this.buttonNext.TabIndex = 10;
+            this.buttonNext.Text = "Next";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Visible = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +198,8 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(846, 481);
+            this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.textBoxResult);
             this.Controls.Add(this.labelError);
             this.Controls.Add(this.labelCount);
@@ -187,6 +230,8 @@
         private System.Windows.Forms.Label labelCount;
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.PictureBox pictureBoxLocation;
+        private System.Windows.Forms.Button buttonPrev;
+        private System.Windows.Forms.Button buttonNext;
     }
 }
 
