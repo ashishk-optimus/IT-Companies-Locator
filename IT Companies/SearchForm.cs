@@ -35,7 +35,7 @@ namespace IT_Companies
             textBoxResult.Text = ""; // Set Initially textBoxResult as Empty
             labelCount.Text = ""; // Set Initially labelCount as Empty
             
-            // Get City details from the textbox named t1
+            // Get City details from the textbox named textboxCity
             string cityName = textboxCity.Text;
 
             // Regular Expression for special character
@@ -93,6 +93,7 @@ namespace IT_Companies
                 // Getting token name for returned result
                 _nodeListToken = _xmlDoc.GetElementsByTagName("next_page_token");
 
+                // Append _pageTokenList with latest token
                 foreach (XmlNode xn in _nodeListToken)
                 {
                     _pageTokenList.Add(_nodeListToken[0].InnerText);
@@ -135,6 +136,7 @@ namespace IT_Companies
                         pictureBoxLocation.Visible = false;
                         labelResult.Visible = true;
                         textBoxResult.Visible = true;
+
                         // Appending textBoxResult with CompanyDetails Object by calling toString() method for each object
                         textBoxResult.Text += company[i] + "\r\n-------------------------------------------------------------\r\n";
                     }
@@ -157,7 +159,7 @@ namespace IT_Companies
             textBoxResult.Text = ""; // Set Initially textBoxResult as Empty
             labelCount.Text = ""; // Set Initially labelCount as Empty
 
-            // Get City details from the textbox named t1
+            // Get City details from the textbox named textboxCity
             string cityName = textboxCity.Text;
 
 
@@ -191,6 +193,8 @@ namespace IT_Companies
             {
                 buttonNext.Visible = true;
             }
+
+            // Append _pageTokenList with latest token
             foreach (XmlNode xn in _nodeListToken)
             {
                 _pageTokenList.Add(_nodeListToken[0].InnerText);
